@@ -1,0 +1,42 @@
+description: This is a fake dataset which mimics smFRET data.
+
+setup:
+    ## Mandatory fields
+    num_pixels: 2                # using 2 detectors
+    num_spots: 1                 # a single confoca excitation
+    num_spectral_ch: 2           # donor and acceptor detection
+    num_polarization_ch: 1       # no polarization selection
+    num_split_ch: 1              # no beam splitter
+    modulated_excitation: False  # CW excitation, no modulation
+    lifetime: False              # no TCSPC in detection
+
+    ## Optional fields
+    excitation_wavelengths:      # List of excitation wavelenghts
+       - !!float 532e-9
+    excitation_cw:               # List of booleans, True if wavelength is CW
+       - True
+    detection_wavelengths:       # Nominal center wavelength for each for detection ch
+       - !!float 580e-9
+       - !!float 640e-9
+
+sample:
+  sample_name: describe the sample here
+  buffer_name: describe the buffer here
+  dye_names: 'Cy3B, ATTO647N'   # Comma separates names of fluorophores
+
+identity:
+    author: Author Name
+    author_affiliation: Name of Research Institution
+
+provenance:
+    filename: 'photon_data.hdf5'
+    software: Acquisition Software Name
+
+photon_data:
+    timestamps_specs:
+        timestamps_unit: !!float 10e-9  # 10 ns
+    measurement_specs:
+        measurement_type: smFRET
+        detectors_specs:
+            spectral_ch1: [0]  # list of donor's detector IDs
+            spectral_ch2: [1]  # list of acceptor's detector IDs
