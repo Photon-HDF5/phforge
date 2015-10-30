@@ -47,10 +47,11 @@ def main():
     if len(sys.argv) == 1 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
         help()
         sys.exit(0)
-    if len(sys.argv) != 4:
-        error('You need to pass 2 or 3 arguments.')
+    num_args = 3
+    if len(sys.argv) != num_args + 1:
+        error('You need to pass %d arguments.' % num_args)
 
-    ## Check input files exists
+    ## Check that input files exists
     metadata_fname, hdf5_fname, out_fname = sys.argv[1:]
     if not os.path.isfile(metadata_fname):
         error('Metadata file "%s" not found.')
