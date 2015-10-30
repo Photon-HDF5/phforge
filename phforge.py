@@ -54,11 +54,11 @@ def main():
     ## Check that input files exists
     metadata_fname, hdf5_fname, out_fname = sys.argv[1:]
     if not os.path.isfile(metadata_fname):
-        error('Metadata file "%s" not found.')
+        error('Metadata file "%s" not found.' % metadata_fname)
     if not os.path.isfile(hdf5_fname):
-        error('HDF5 file "%s" not found.')
+        error('HDF5 file "%s" not found.' % hdf5_fname)
     if os.path.isfile(out_fname):
-        error('A file "%s" already exists.')
+        error('A file "%s" already exists.' % out_fname)
 
     ## Load data
     data = yaml.load(open(metadata_fname))
