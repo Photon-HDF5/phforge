@@ -28,7 +28,7 @@ def help():
         metadata_file:
             file name for the YAML file containing metadata
 
-        hdf5_arrays:
+        hdf5_file:
             file name of the HDF5 file containing the photon_data arrays.
 
         output_file:

@@ -1,9 +1,9 @@
-description: This is a fake dataset which mimics smFRET data.
+description: This is a dummy dataset which mimics smFRET data.
 
 setup:
     ## Mandatory fields
     num_pixels: 2                # using 2 detectors
-    num_spots: 1                 # a single confoca excitation
+    num_spots: 1                 # a single confocal excitation
     num_spectral_ch: 2           # donor and acceptor detection
     num_polarization_ch: 1       # no polarization selection
     num_split_ch: 1              # no beam splitter
