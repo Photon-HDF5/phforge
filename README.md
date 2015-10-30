@@ -47,8 +47,9 @@ We recommend using `conda` (Anaconda or Miniconda) to install the dependencies.
 
 ## Dependencies
 
+- python 2.7 (legacy), 3.4 (or later)
 - pyyaml
 - h5py
-- phconvert
+- phconvert 0.6.5 (or later)
 
-These packages depends on yaml (C library), pytables, hdf5 (C library).
+These packages depends on yaml (C library), pytables 3.2, hdf5 1.8.15 (C library).
