@@ -20,7 +20,7 @@ setup(
     author_email = 'tritemio@gmail.com',
     # url          = 'http://photon-hdf5.github.io/phconvert/',
     # download_url = 'http://photon-hdf5.github.io/phconvert/',
-    install_requires = ['h5py', 'pyyaml', 'phconvert'],
+    install_requires = ['pyyaml', 'phconvert'],
     license = 'MIT',
     description = ("Create Photon-HDF5 files."),
     long_description = long_description,
