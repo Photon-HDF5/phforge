@@ -16,7 +16,7 @@ creating the file.
 
 ## How to use?
 
-A program wanting to crate a Photon-HDF5 file, needs to save a temporary HDF5
+A program wanting to create a Photon-HDF5 file, needs to save a temporary HDF5
 containing only the
 [photon-data arrays](http://photon-hdf5.readthedocs.org/en/latest/phdata.html#photon-data-group)
 (timestamps, detectors, nanotimes, etc...) and to generate (or ask the user
