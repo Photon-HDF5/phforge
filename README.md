@@ -46,7 +46,8 @@ To install the conda package type:
 conda install phforge -c tritemio
 ```
 
-A conda installation is required (use either [Anaconda]() or [Miniconda3]()). 
+A conda installation is required (use either [Anaconda](https://www.continuum.io/downloads) 
+or [Miniconda3](http://conda.pydata.org/miniconda.html)). 
 The installation adds the phforge to the system path so that it
 can be directly called from any shell.
 
