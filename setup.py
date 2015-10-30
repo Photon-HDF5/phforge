@@ -7,10 +7,14 @@ long_description = """
 phforge
 =======
 
-This is a script to create `Photon-HDF5 <http://photon-hdf5.org/>`_ files
-from a YAML file containing metadata and an HDF5 file containing
-the photon_data arrays.
+phforge is a script to ease creating `Photon-HDF5 <http://photon-hdf5.org/>`_
+files.
 
+The main purpose of this script is enabling programs (e.g. data acquisition
+software) in any programming languages to create valid Photon-HDF5 files
+with minimal effort. Under the hood, phforge uses the phconvert library
+which assures compliance with the Photon-HDF5 specifications and simplifies
+saving the file.
 """
 
 setup(
@@ -18,11 +22,11 @@ setup(
     version=__version__,
     author = 'Antonino Ingargiola',
     author_email = 'tritemio@gmail.com',
-    # url          = 'http://photon-hdf5.github.io/phconvert/',
-    # download_url = 'http://photon-hdf5.github.io/phconvert/',
-    install_requires = ['pyyaml', 'phconvert'],
+    url = 'https://github.com/Photon-HDF5/phforge',
+    download_url = 'https://github.com/Photon-HDF5/phforge',
+    install_requires = ['pyyaml', 'phconvert'], #
     license = 'MIT',
-    description = ("Create Photon-HDF5 files."),
+    description = ("Script for easy creation of Photon-HDF5 files."),
     long_description = long_description,
     platforms = ('Windows', 'Linux', 'Mac OS X'),
     classifiers=['Intended Audience :: Science/Research',

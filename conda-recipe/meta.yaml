@@ -3,7 +3,7 @@ package:
   version: 0.1
 
 source:
-    git_url: https://github.com/tritemio/phforge.git
+    git_url: https://github.com/Photon-HDF5/phforge.git
     #git_tag: dev
 
 build:
@@ -15,8 +15,6 @@ requirements:
     - setuptools
     - h5py
     - pyyaml
-    - mock
-    - nose
     - phconvert >=0.6.5
 
   run:
@@ -24,8 +22,6 @@ requirements:
     - setuptools
     - h5py
     - pyyaml
-    - mock
-    - nose
     - phconvert >=0.6.5
 
 test:
@@ -34,6 +30,6 @@ test:
 
 
 about:
-  home: https://github.com/tritemio/phforge
+  home: https://github.com/Photon-HDF5/phforge
   license: MIT
   summary: 'Script for creating Photon-HDF5 files.'
