@@ -39,17 +39,24 @@ to saves a new Photon-HDF5 file.
 
 ## How to install?
 
-The script can be installed with PIP on any platform (Linux, OS X or Windows).
-The installation adds the phforge to the system path so that it
-can be directly called from a shell.
+We provided `conda` packages for Windows x64 and OS X for both python 3.4 and legacy python 2.7.
+To install the conda package type:
 
-We recommend using `conda` (Anaconda or Miniconda) to install the dependencies.
+```
+conda install phforge -c tritemio
+```
+
+A conda installation is required (use either [Anaconda]() or [Miniconda3]()). 
+The installation adds the phforge to the system path so that it
+can be directly called from any shell.
+
+Linux users can use PIP or just download the script manually.
 
 ## Dependencies
 
 - python 2.7 (legacy), 3.4 (or later)
-- pyyaml
-- h5py
+- pyyaml (tested on 3.11)
+- h5py (tested on 2.5.0)
 - phconvert 0.6.5 (or later)
 
-These packages depends on yaml (C library), pytables 3.2, hdf5 1.8.15 (C library).
+These packages depends on yaml (C library), pytables 3.2, hdf5 (C library).
