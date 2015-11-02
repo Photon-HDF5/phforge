@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Phforge : A script to create Photon-HDF5 files.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Phforge</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Photon-HDF5/phforge">View on GitHub</a>
+
+          <h1 id="project_title">Phforge</h1>
+          <h2 id="project_tagline">A script to create Photon-HDF5 files.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Photon-HDF5/phforge/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Photon-HDF5/phforge/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="phforge" class="anchor" href="#phforge" aria-hidden="true"><span class="octicon octicon-link"></span></a>phforge</h1>
+
+<h2>
+<a id="what-is-it" class="anchor" href="#what-is-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is it?</h2>
+
+<p><strong>phforge</strong> is a script to create <a href="http://photon-hdf5.org/">Photon-HDF5</a> files
+starting from two files:</p>
+
+<ul>
+<li>a YAML file containing the metadata</li>
+<li>a (temporary) HDF5 file containing only the photon_data arrays</li>
+</ul>
+
+<p>The main purpose of this script is enabling programs (e.g. acquisition
+software) in any programming languages to create valid Photon-HDF5 files
+with minimal effort. Under the hood, phforge uses the <a href="http://photon-hdf5.github.io/phconvert/">phconvert</a> library to
+assure compliance with the Photon-HDF5 specs and to simplify
+creating the file.</p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use?</h2>
+
+<p>A program wanting to create a Photon-HDF5 file, needs to save a temporary HDF5
+containing only the
+<a href="http://photon-hdf5.readthedocs.org/en/latest/phdata.html#photon-data-group">photon-data arrays</a>
+(timestamps, detectors, nanotimes, etc...) and to generate (or ask the user
+to write) a YAML file with the metadata (i.e. all the Photon-HDF5 fields
+except for the photon-data arrays). Examples of both YAML and HDF5 files
+can be found in the <a href="https://github.com/tritemio/phforge/tree/master/example_data">example_data</a>
+folder.</p>
+
+<p>Next, the program can invoke <code>phforge</code> script to create a Photon-HDF5 file:</p>
+
+<pre><code>phforge metadata_file hdf5_file out_file
+</code></pre>
+
+<p>The script creates an in-memory Photon-HDF5 representation (based on
+nested dictionaries) by joining the metadata structure from the
+YAML file and the numeric arrays from the temporary HDF5 file.
+Finally, it uses phconvert's <a href="http://phconvert.readthedocs.org/en/latest/hdf5.html#phconvert.hdf5.save_photon_hdf5"><code>save_photon_hdf5()</code></a>
+function to save a new Photon-HDF5 file.</p>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to install?</h2>
+
+<p>We provided <code>conda</code> packages for Windows x64 and OS X for both python 3.4 and legacy python 2.7.
+To install the conda package type:</p>
+
+<pre><code>conda install phforge -c tritemio
+</code></pre>
+
+<p>A conda installation is required (use either <a href="https://www.continuum.io/downloads">Anaconda</a> 
+or <a href="http://conda.pydata.org/miniconda.html">Miniconda3</a>). 
+The installation adds the phforge to the system path so that it
+can be directly called from any shell.</p>
+
+<p>Alternatively the script can be installed with PIP on any platform.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<ul>
+<li>python 3.4 (or later, recommended) or 2.7 (legacy)</li>
+<li>pyyaml (tested on 3.11)</li>
+<li>h5py (tested on 2.5.0)</li>
+<li>phconvert 0.6.5 (or later)</li>
+</ul>
+
+<p>These packages depends on yaml (C library), pytables 3.2, hdf5 (C library).</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Phforge maintained by <a href="https://github.com/Photon-HDF5">Photon-HDF5</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
