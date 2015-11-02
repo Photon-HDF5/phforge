@@ -51,11 +51,11 @@ or [Miniconda3](http://conda.pydata.org/miniconda.html)).
 The installation adds the phforge to the system path so that it
 can be directly called from any shell.
 
-Linux users can use PIP or just download the script manually.
+Alternatively the script can be installed with PIP on any platform.
 
 ## Dependencies
 
-- python 2.7 (legacy), 3.4 (or later)
+- python 3.4 (or later, recommended) or 2.7 (legacy)
 - pyyaml (tested on 3.11)
 - h5py (tested on 2.5.0)
 - phconvert 0.6.5 (or later)
