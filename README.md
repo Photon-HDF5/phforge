@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This is a script to create [Photon-HDF5](http://photon-hdf5.org/) files
+**phforge** is a script to create [Photon-HDF5](http://photon-hdf5.org/) files
 starting from two files:
 
 - a YAML file containing the metadata
@@ -35,7 +35,7 @@ The script creates an in-memory Photon-HDF5 representation (based on
 nested dictionaries) by joining the metadata structure from the
 YAML file and the numeric arrays from the temporary HDF5 file.
 Finally, it uses phconvert's [`save_photon_hdf5()`](http://phconvert.readthedocs.org/en/latest/hdf5.html#phconvert.hdf5.save_photon_hdf5)
-to saves a new Photon-HDF5 file.
+function to save a new Photon-HDF5 file.
 
 ## How to install?
 
