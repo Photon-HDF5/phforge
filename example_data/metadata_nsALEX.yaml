@@ -1,0 +1,47 @@
+description: This is a dummy dataset which mimics ns-ALEX smFRET data.
+
+setup:
+    ## Mandatory fields
+    num_pixels: 2                # number single-pixel detectors
+    num_spots: 1                 # number of confocal excitation spots
+    num_spectral_ch: 2           # 2 for donor and acceptor detection
+    num_polarization_ch: 1       # 1 = no polarization selection
+    num_split_ch: 1              # 1 = no beam splitting
+    modulated_excitation: True   # us-ALEX alternation requires True here
+    lifetime: False              # no TCSPC in detection
+
+    ## Optional fields
+    excitation_wavelengths: [532e-9, 638E-9]  # List of excitation wavelenghts
+    excitation_cw: [True, True]               # List of booleans, True if wavelength is CW
+    detection_wavelengths: [580e-9, 640e-9]   # Center wavelength for each for detection ch
+
+sample:
+  sample_name: describe the sample here
+  buffer_name: describe the buffer here
+  dye_names: 'Dye Name 1, Dye Name 2'   # Comma separates names of fluorophores
+
+identity:
+    author: Author Name
+    author_affiliation: Name of Research Institution
+
+provenance:
+    filename: 'photon_data.hdf5'
+    software: Acquisition Software Name
+
+photon_data:
+    timestamps_specs:
+        timestamps_unit: 10e-9  # 10 ns
+    nanotimes_specs:
+        tcspc_unit: 10e-12
+        tcspc_num_bins: 4000
+        tcspc_range: 40e-9
+
+    measurement_specs:
+        measurement_type: smFRET-nsALEX
+        laser_repetition_rate: 20e6  # 20 MHz
+        alex_excitation_period1: [100, 1900]
+        alex_excitation_period2: [2100, 3900]
+
+        detectors_specs:
+            spectral_ch1: [0]  # list of donor's detector IDs
+            spectral_ch2: [1]  # list of acceptor's detector IDs

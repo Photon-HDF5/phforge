@@ -2,27 +2,23 @@ description: This is a dummy dataset which mimics smFRET data.
 
 setup:
     ## Mandatory fields
-    num_pixels: 2                # using 2 detectors
-    num_spots: 1                 # a single confocal excitation
-    num_spectral_ch: 2           # donor and acceptor detection
-    num_polarization_ch: 1       # no polarization selection
-    num_split_ch: 1              # no beam splitter
+    num_pixels: 2                # number single-pixel detectors
+    num_spots: 1                 # number of confocal excitation spots
+    num_spectral_ch: 2           # 2 for donor and acceptor detection
+    num_polarization_ch: 1       # 1 = no polarization selection
+    num_split_ch: 1              # 1 = no beam splitting
     modulated_excitation: False  # CW excitation, no modulation
     lifetime: False              # no TCSPC in detection
 
     ## Optional fields
-    excitation_wavelengths:      # List of excitation wavelenghts
-       - !!float 532e-9
-    excitation_cw:               # List of booleans, True if wavelength is CW
-       - True
-    detection_wavelengths:       # Nominal center wavelength for each for detection ch
-       - !!float 580e-9
-       - !!float 640e-9
+    excitation_wavelengths: [532e-9, 638E-9]  # List of excitation wavelenghts
+    excitation_cw: [True, True]               # List of booleans, True if wavelength is CW
+    detection_wavelengths: [580e-9, 640e-9]   # Center wavelength for each for detection ch
 
 sample:
   sample_name: describe the sample here
   buffer_name: describe the buffer here
-  dye_names: 'Cy3B, ATTO647N'   # Comma separates names of fluorophores
+  dye_names: 'Dye Name 1, Dye Name 2'   # Comma separates names of fluorophores
 
 identity:
     author: Author Name
