@@ -30,7 +30,7 @@ provenance:
 
 photon_data:
     timestamps_specs:
-        timestamps_unit: !!float 10e-9  # 10 ns
+        timestamps_unit: 10e-9  # 10 ns
     measurement_specs:
         measurement_type: smFRET
         detectors_specs:
