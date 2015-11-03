@@ -69,5 +69,27 @@ def main():
     ## Save Photon-HDF5 file
     phc.hdf5.save_photon_hdf5(data, h5_fname=out_fname)
 
+def run_tests():
+    import pkg_resources as pkg
+    import os
+    import subprocess
+
+    basedir = pkg.resource_filename('phforge', 'example_data')
+    hdf5_fname = pkg.resource_filename('phforge',
+                                       'example_data/photon_data_arrays.h5')
+    assert os.path.isfile(hdf5_fname)
+    for meta in pkg.resource_listdir('phforge', 'example_data'):
+        if meta.endswith('yaml'):
+            meta_fname = '/'.join((basedir, meta))
+            os.path.exists(meta_fname)
+            out_fname = 'photon_hdf5_%s.h5' % meta[:-5].split('_')[1]
+            cmd = ('phforge "{meta}" "{hdf5}" "{out}"'
+                   .format(meta=meta_fname, hdf5=hdf5_fname, out=out_fname))
+            print('\n- Executing: %s' % cmd)
+            assert os.path.isfile(meta_fname)
+            subprocess.check_call(cmd, shell=True)
+
+
+
 if __name__ == '__main__':
     main()

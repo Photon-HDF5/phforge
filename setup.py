@@ -24,7 +24,7 @@ setup(
     author_email = 'tritemio@gmail.com',
     url = 'https://github.com/Photon-HDF5/phforge',
     download_url = 'https://github.com/Photon-HDF5/phforge',
-    install_requires = ['pyyaml', 'phconvert'], #
+    install_requires = ['pyyaml', 'phconvert'],  # removed h5py for conda issue
     license = 'MIT',
     description = ("Script for easy creation of Photon-HDF5 files."),
     long_description = long_description,
@@ -37,6 +37,7 @@ setup(
                  'Topic :: Scientific/Engineering',
                  ],
     py_modules = ['phforge'],
+    package_data = {'phforge': ['example_data/*']},
     entry_points={'console_scripts': ['phforge = phforge:main']},
     keywords = ('single-molecule FRET smFRET biophysics file-format HDF5 '
                 'Photon-HDF5')
