@@ -61,3 +61,17 @@ Alternatively the script can be installed with PIP on any platform.
 - phconvert 0.6.5 (or later)
 
 These packages depends on yaml (C library), pytables 3.2, hdf5 (C library).
+
+# Feedback
+
+For questions or comments please:
+
+- [Open an GitHub issue](https://github.com/Photon-HDF5/phforge/issues) or
+- Ask a question on the [Photon-HDF5 Google Group](https://groups.google.com/forum/#!forum/photon-hdf5).
+ 
+## License
+
+*phforge* is released under the open source MIT license.
+
+## Acknowledgements
+This work was supported by NIH Grant R01-GM95904.
