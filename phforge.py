@@ -40,7 +40,7 @@ def error(msg):
     sys.exit(1)
 
 def main():
-    print("phforge {version} (phconvert {phc_version}\n"
+    print("\nphforge {version} (phconvert {phc_version})\n"
           .format(version=__version__, phc_version=phc.__version__))
 
     ## Check arguments
