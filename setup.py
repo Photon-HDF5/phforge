@@ -38,7 +38,7 @@ setup(
                  ],
     py_modules = ['phforge'],
     package_data = {'phforge': ['example_data/*']},
-    zip_safe = False,
+    #zip_safe = False,
     entry_points={'console_scripts': ['phforge = phforge:main']},
     keywords = ('single-molecule FRET smFRET biophysics file-format HDF5 '
                 'Photon-HDF5')
