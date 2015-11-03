@@ -5,7 +5,7 @@
 **phforge** is a script to create [Photon-HDF5](http://photon-hdf5.org/) files
 starting from two files:
 
-- a YAML file containing the metadata
+- a [YAML](https://en.wikipedia.org/wiki/YAML) file containing the metadata
 - a (temporary) HDF5 file containing only the photon_data arrays
 
 The main purpose of this script is enabling programs (e.g. acquisition
