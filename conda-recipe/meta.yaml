@@ -1,13 +1,13 @@
 package:
   name: phforge
-  version: 0.1
+  version: 0.1.1
 
 source:
     git_url: https://github.com/Photon-HDF5/phforge.git
     #git_tag: dev
 
 build:
-    number: 1
+    number: 0
 
 requirements:
   build:

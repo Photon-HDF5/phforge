@@ -10,7 +10,7 @@ import yaml
 import h5py
 import phconvert as phc
 
-__version__ = 0.1
+__version__ = 0.1.1
 
 
 def help():
