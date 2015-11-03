@@ -16,8 +16,6 @@ __version__ = 0.1
 def help():
     """Print help"""
     msg = """\
-    phforge {version} (phconvert {phc_version})
-
     Create a Photon-HDF5 file (www.photon-hdf5.org) from metadata in
     a YAML file and photon_data arrays in a (temporary) HDF5 file.
 
@@ -33,7 +31,7 @@ def help():
 
         output_file:
             file name for the Photon-HDF5 file to be created.
-    """.format(version=__version__, phc_version=phc.__version__)
+    """
     print(dedent(msg))
 
 def error(msg):
@@ -42,7 +40,9 @@ def error(msg):
     sys.exit(1)
 
 def main():
-    print()
+    print("phforge {version} (phconvert {phc_version}\n"
+          .format(version=__version__, phc_version=phc.__version__))
+
     ## Check arguments
     if len(sys.argv) == 1 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
         help()
