@@ -1,6 +1,6 @@
 package:
   name: phforge
-  version: 0.1.1
+  version: 0.2
 
 source:
     git_url: https://github.com/Photon-HDF5/phforge.git
@@ -15,14 +15,14 @@ requirements:
     - setuptools
     - h5py
     - pyyaml
-    - phconvert >=0.6.5
+    - phconvert >=0.8
 
   run:
     - python
     - setuptools
     - h5py
     - pyyaml
-    - phconvert >=0.6.5
+    - phconvert >=0.8
 
 test:
   commands:

@@ -1,4 +1,4 @@
-description: This is a dummy dataset which mimics smFRET data.
+description: Description for the smFRET measurement.
 
 setup:
     ## Mandatory fields
@@ -8,11 +8,12 @@ setup:
     num_polarization_ch: 1       # 1 = no polarization selection
     num_split_ch: 1              # 1 = no beam splitting
     modulated_excitation: False  # CW excitation, no modulation
+    excitation_alternated: [False,]   # True for each alternated laserline
     lifetime: False              # no TCSPC in detection
 
     ## Optional fields
-    excitation_wavelengths: [532e-9, 638E-9]  # List of excitation wavelenghts
-    excitation_cw: [True, True]               # List of booleans, True if wavelength is CW
+    excitation_wavelengths: [532e-9]  # List of excitation wavelenghts
+    excitation_cw: [True,]               # List of booleans, True if wavelength is CW
     detection_wavelengths: [580e-9, 640e-9]   # Center wavelength for each for detection ch
 
 sample:

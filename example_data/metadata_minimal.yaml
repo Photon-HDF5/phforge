@@ -1,4 +1,4 @@
-description: This is a dummy dataset which mimics smFRET data.
+description: This is a description of the data file
 
 setup:
     num_pixels: 2                # number single-pixel detectors
@@ -7,6 +7,7 @@ setup:
     num_polarization_ch: 1       # 1 = no polarization selection
     num_split_ch: 1              # 1 = no beam splitting
     modulated_excitation: False  # CW excitation, no modulation
+    excitation_alternated: [False, False]   # True for each alternated laserline
     lifetime: False              # no TCSPC in detection
 
 photon_data:

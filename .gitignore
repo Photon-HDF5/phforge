@@ -2,3 +2,4 @@ build
 dist
 phforge.egg-info
 __pycache__
+*.pyc

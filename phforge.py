@@ -10,64 +10,24 @@ import yaml
 import h5py
 import phconvert as phc
 
-__version__ = '0.1.1'
+__version__ = '0.2'
 
-
-def help():
-    """Print help"""
-    msg = """\
-    Create a Photon-HDF5 file (www.photon-hdf5.org) from metadata in
-    a YAML file and photon_data arrays in a (temporary) HDF5 file.
-
-    Usage:
-
-        phforge metadata_file hdf5_file output_file
-
-        metadata_file:
-            file name for the YAML file containing metadata
-
-        hdf5_file:
-            file name of the HDF5 file containing the photon_data arrays.
-
-        output_file:
-            file name for the Photon-HDF5 file to be created.
-    """
-    print(dedent(msg))
 
 def error(msg):
     print('ERROR: %s \n' % msg)
-    print('Type phforge with no arguments for help.\n')
+    print('Type `phforge -h` for help.\n')
     sys.exit(1)
 
-def main():
-    print("\nphforge {version} (phconvert {phc_version})\n"
-          .format(version=__version__, phc_version=phc.__version__))
 
-    ## Check arguments
-    if len(sys.argv) == 1 or sys.argv[1] == '-h' or sys.argv[1] == '--help':
-        help()
-        sys.exit(0)
-    num_args = 3
-    if len(sys.argv) != num_args + 1:
-        error('You need to pass %d arguments.' % num_args)
-
-    ## Check that input files exists
-    metadata_fname, hdf5_fname, out_fname = sys.argv[1:]
-    if not os.path.isfile(metadata_fname):
-        error('Metadata file "%s" not found.' % metadata_fname)
-    if not os.path.isfile(hdf5_fname):
-        error('HDF5 file "%s" not found.' % hdf5_fname)
-    if os.path.isfile(out_fname):
-        error('A file "%s" already exists.' % out_fname)
-
-    ## Load data
+def run(metadata_fname, hdf5_fname, out_fname):
+    # Load data
     data = yaml.load(open(metadata_fname))
     with h5py.File(hdf5_fname) as h5file:
         for name in h5file:
             data['photon_data'][name] = h5file[name][:]
-
-    ## Save Photon-HDF5 file
+    # Save Photon-HDF5 file
     phc.hdf5.save_photon_hdf5(data, h5_fname=out_fname)
+
 
 def run_tests():
     import pkg_resources as pkg
@@ -90,6 +50,28 @@ def run_tests():
             subprocess.check_call(cmd, shell=True)
 
 
-
 if __name__ == '__main__':
-    main()
+    import argparse
+    print("\nphforge {version} (phconvert {phc_version})\n"
+          .format(version=__version__, phc_version=phc.__version__))
+    descr = """\
+        Create a Photon-HDF5 file (www.photon-hdf5.org) from metadata in
+        a YAML file and photon_data arrays in a (temporary) HDF5 file
+        """
+    parser = argparse.ArgumentParser(description=descr, epilog='\n')
+    help = 'file name for the YAML file containing metadata.'
+    parser.add_argument('metadata_file', help=help)
+    help = 'file name of the HDF5 file containing the photon_data arrays.'
+    parser.add_argument('hdf5_file', help=help)
+    help = 'file name for the Photon-HDF5 file to be created.'
+    parser.add_argument('output_file', help=help)
+    args = parser.parse_args()
+
+    if not os.path.isfile(args.metadata_file):
+        error('Metadata file "%s" not found.' % args.metadata_file)
+    if not os.path.isfile(args.hdf5_file):
+        error('HDF5 file "%s" not found.' % args.hdf5_file)
+    if os.path.isfile(args.output_file):
+        error('A file "%s" already exists.' % args.output_file)
+
+    run(args.metadata_file, args.hdf5_file, args.output_file)

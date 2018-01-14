@@ -8,6 +8,7 @@ setup:
     num_polarization_ch: 1       # 1 = no polarization selection
     num_split_ch: 1              # 1 = no beam splitting
     modulated_excitation: True   # us-ALEX alternation requires True here
+    excitation_alternated: [True, True]   # True for each alternated laserline
     lifetime: False              # no TCSPC in detection
 
     ## Optional fields

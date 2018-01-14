@@ -34,7 +34,7 @@ phforge metadata_file hdf5_file out_file
 The script creates an in-memory Photon-HDF5 representation (based on
 nested dictionaries) by joining the metadata structure from the
 YAML file and the numeric arrays from the temporary HDF5 file.
-Finally, it uses phconvert's [`save_photon_hdf5()`](http://phconvert.readthedocs.org/en/latest/hdf5.html#phconvert.hdf5.save_photon_hdf5)
+Then, it uses phconvert's [`save_photon_hdf5()`](http://phconvert.readthedocs.org/en/latest/hdf5.html#phconvert.hdf5.save_photon_hdf5)
 function to save a new Photon-HDF5 file.
 
 ## How to install?
@@ -46,8 +46,8 @@ To install the conda package type:
 conda install phforge -c tritemio
 ```
 
-A conda installation is required (use either [Anaconda](https://www.continuum.io/downloads) 
-or [Miniconda3](http://conda.pydata.org/miniconda.html)). 
+A conda installation is required (use either [Anaconda](https://www.continuum.io/downloads)
+or [Miniconda3](http://conda.pydata.org/miniconda.html)).
 The installation adds the phforge to the system path so that it
 can be directly called from any shell.
 
@@ -58,7 +58,7 @@ Alternatively the script can be installed with PIP on any platform.
 - python 3.4 (or later, recommended) or 2.7 (legacy)
 - pyyaml (tested on 3.11)
 - h5py (tested on 2.5.0)
-- phconvert 0.6.5 (or later)
+- phconvert 0.8 (or later)
 
 These packages depends on yaml (C library), pytables 3.2, hdf5 (C library).
 
@@ -68,7 +68,7 @@ For questions or comments please:
 
 - [Open an GitHub issue](https://github.com/Photon-HDF5/phforge/issues) or
 - Ask a question on the [Photon-HDF5 Google Group](https://groups.google.com/forum/#!forum/photon-hdf5).
- 
+
 ## License
 
 *phforge* is released under the open source MIT license.
