@@ -16,42 +16,64 @@ creating the file.
 
 ## How to use?
 
-A program wanting to create a Photon-HDF5 file, needs to save a temporary HDF5
-containing only the
+A program wanting to create a Photon-HDF5 file, needs to first create a
+temporary HDF5 file (with photon timestamps) and a text YAML file with the
+metadata. With these two input files, `phforge` can save a Photon-HDF5 file.
+
+The temporary HDF5 file needs to contain the
 [photon-data arrays](http://photon-hdf5.readthedocs.org/en/latest/phdata.html#photon-data-group)
-(timestamps, detectors, nanotimes, etc...) and to generate (or ask the user
-to write) a YAML file with the metadata (i.e. all the Photon-HDF5 fields
-except for the photon-data arrays). Examples of both YAML and HDF5 files
-can be found in the [example_data](https://github.com/tritemio/phforge/tree/master/example_data)
+(timestamps, detectors, nanotimes). The metadata file contains all the
+Photon-HDF5 fields except for the photon-data arrays.
+Examples of both YAML and HDF5 files can be found in the [example_data](https://github.com/tritemio/phforge/tree/master/example_data)
 folder.
 
-Next, the program can invoke `phforge` script to create a Photon-HDF5 file:
+Finally, to create a Photon-HDF5 file run `phforge` as follows:
 
 ```
 phforge metadata_file hdf5_file out_file
 ```
 
 The script creates an in-memory Photon-HDF5 representation (based on
-nested dictionaries) by joining the metadata structure from the
+nested dictionaries) joining the metadata structure from the
 YAML file and the numeric arrays from the temporary HDF5 file.
 Then, it uses phconvert's [`save_photon_hdf5()`](http://phconvert.readthedocs.org/en/latest/hdf5.html#phconvert.hdf5.save_photon_hdf5)
 function to save a new Photon-HDF5 file.
 
-## How to install?
+Call `phforge -h` to print usage information.
 
-We provided `conda` packages for Windows x64 and OS X for both python 3.4 and legacy python 2.7.
-To install the conda package type:
+## How to install phforge?
 
-```
-conda install phforge -c tritemio
-```
-
-A conda installation is required (use either [Anaconda](https://www.continuum.io/downloads)
+It is recommended to first instal a conda distribution (either [Anaconda](https://www.continuum.io/downloads)
 or [Miniconda3](http://conda.pydata.org/miniconda.html)).
-The installation adds the phforge to the system path so that it
+The installation adds the `phforge` script to the system path so that it
 can be directly called from any shell.
 
-Alternatively the script can be installed with PIP on any platform.
+### Installation from source (provisional)
+
+You can install `phforge` from source as described here.
+
+First install `phconvert` with:
+
+```
+conda install phconvert -c conda-forge
+```
+
+Then download and extract `phforge` archive from GitHub, open the terminal,
+`cd` into `phforge` source folder and type:
+
+```
+pip install .
+```
+
+### Installation from conda packages (not yet available)
+
+Soon, it will be possible to install `phforge` and all the dependencies
+(including `phconvert`) with a single command:
+
+```
+conda install phforge -c conda-forge  # not yet available
+```
+
 
 ## Dependencies
 
@@ -60,7 +82,8 @@ Alternatively the script can be installed with PIP on any platform.
 - h5py (tested on 2.5.0)
 - phconvert 0.8 (or later)
 
-These packages depends on yaml (C library), pytables 3.2, hdf5 (C library).
+These packages depends on yaml (C library), pytables, hdf5 (C library).
+The installation through conda will automatically install the dependencies.
 
 # Feedback
 
