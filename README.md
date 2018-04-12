@@ -52,10 +52,10 @@ can be directly called from any shell.
 
 You can install `phforge` from source as described here.
 
-First install `phconvert` with:
+First install `phconvert` and `h5py` with:
 
 ```
-conda install phconvert -c conda-forge
+conda install phconvert h5py -c conda-forge
 ```
 
 Then download and extract `phforge` archive from GitHub, open the terminal,

@@ -5,12 +5,12 @@ Create Photon-HDF5 from YAML and and a temporary HDF5 file.
 
 import sys
 import os
-from textwrap import dedent
+import argparse
 import yaml
 import h5py
 import phconvert as phc
 
-__version__ = '0.2'
+__version__ = '0.2.1'
 
 
 def error(msg):
@@ -50,8 +50,7 @@ def run_tests():
             subprocess.check_call(cmd, shell=True)
 
 
-if __name__ == '__main__':
-    import argparse
+def main():
     print("\nphforge {version} (phconvert {phc_version})\n"
           .format(version=__version__, phc_version=phc.__version__))
     descr = """\
@@ -73,5 +72,8 @@ if __name__ == '__main__':
         error('HDF5 file "%s" not found.' % args.hdf5_file)
     if os.path.isfile(args.output_file):
         error('A file "%s" already exists.' % args.output_file)
-
     run(args.metadata_file, args.hdf5_file, args.output_file)
+
+
+if __name__ == '__main__':
+    main()
