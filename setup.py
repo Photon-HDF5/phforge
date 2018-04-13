@@ -1,7 +1,7 @@
 from setuptools import setup
 
 project_name = 'phforge'
-__version__ = '0.2'
+__version__ = '0.2.1'
 
 long_description = """
 phforge
